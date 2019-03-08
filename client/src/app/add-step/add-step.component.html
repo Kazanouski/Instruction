@@ -1,0 +1,23 @@
+<p>
+  Step {{counter}}
+</p>
+<P>
+  {{manual?.name}}  
+  {{manual?.id}}
+  {{name}}
+</P>
+<button (click)="increment()">+</button>
+
+<div [hidden]="submitted">
+    <form (submit)="addStep()">
+
+      <div class="form-group">
+        <label for="description">description</label>
+        <input type="text" class="form-control" id="description" placeholder="description"
+         [(ngModel)]="step.description" name="description" #description="ngModel">
+      </div>
+      <div class="btn-group btn-group-sm">
+      	<button   class="btn btn-dark"type="submit" (click)="increment()">Add</button>
+      </div>
+    </form>
+</div>

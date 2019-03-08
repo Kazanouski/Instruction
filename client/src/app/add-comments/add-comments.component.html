@@ -1,0 +1,13 @@
+<div [hidden]="submitted">
+  <form (submit)="AddCommnet()">
+
+    <div class="form-group">
+      <label for="comment">comment</label>
+      <input type="text" class="form-control" id="comment" placeholder="comment"
+       [(ngModel)]="comments.comment" name="comment" #comment="ngModel">
+    </div>
+    <div class="btn-group btn-group-sm">
+      <button class="btn btn-dark"type="submit">Add</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="jumbotron mt-5">
+    <div class="col-sm-8 mx-auto">
+      <h1 class="text-profile">PROFILE</h1>
+    </div>
+    <table class="table col-md-6 mx-auto">
+      <tr>
+        <td>Name</td>
+        <td>{{details?.name}}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{details?.email}}</td>
+      </tr>
+      <tr>
+        <td>Id</td>
+        <td>{{details?.id}}</td>
+      </tr>
+    </table>
+  </div>
+  <a *ngIf="details" [routerLink]="['/add', details?.id]" class="btn btn-primary" role="button" aria-pressed="true">Add manual</a>
+  <p></p>
+  <a *ngIf="details" [routerLink]="['/userManuals', details?.id]" class="btn btn-primary" role="button" aria-pressed="true">user Manual</a>
+</div>
+  

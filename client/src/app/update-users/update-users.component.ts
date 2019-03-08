@@ -1,0 +1,36 @@
+import { Component, OnInit } from '@angular/core';
+import { Users } from '../users'
+import { UsersService } from '../users.service'
+import { ActivatedRoute, Router } from '@angular/router';
+
+@Component({
+  selector: 'app-update-users',
+  templateUrl: './update-users.component.html',
+  styleUrls: ['./update-users.component.css']
+})
+export class UpdateUsersComponent implements OnInit {
+
+  id: number
+  users = new Users()
+  constructor(private userservice: UsersService, private activatedroute:ActivatedRoute, private router: Router) { }
+
+  ngOnInit() {
+  }
+
+  updateUsers(){
+    this.id  = +this.activatedroute.snapshot.paramMap.get('id')
+    this.userservice.UpdateUsers(this.id,this.users).subscribe(()=>{
+      this.router.navigateByUrl(`/users`)
+    }
+      
+    )
+  }
+
+  deleteUsers(){
+    this.id  = +this.activatedroute.snapshot.paramMap.get('id')
+    this.userservice.DeleteUser(this.id).subscribe(()=>{
+      this.router.navigateByUrl(`/users`)
+    })
+  }
+
+}

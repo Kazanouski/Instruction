@@ -1,0 +1,10 @@
+<div *ngFor="let user of users">
+  <table>
+    <tr>
+      <td>{{user?.id}}</td>
+      <td>{{user?.name}}</td>
+      <td>{{user?.email}}</td>
+      <td><a [routerLink]="['/users', user?.id]">update</a></td>
+    </tr>
+  </table>
+</div>

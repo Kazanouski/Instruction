@@ -1,0 +1,10 @@
+<div *ngFor="let manual of manuals">
+    <table>
+      <tr>
+        <td>{{manual?.id}}</td>
+        <td>{{manual?.name}}</td>
+        <td>{{manual?.description}}</td>
+        <td><a [routerLink]="['/manual', manual?.id,1]">detail</a></td>
+      </tr>
+    </table>
+</div>
