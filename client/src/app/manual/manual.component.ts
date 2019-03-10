@@ -9,7 +9,7 @@ import { Manuals } from '../manuals';
   styleUrls: ['./manual.component.css']
 })
 export class ManualComponent implements OnInit {
-
+  
   manuals: Manuals[]
   constructor(private manualService: ManualService) { }
   
@@ -17,6 +17,8 @@ export class ManualComponent implements OnInit {
   ngOnInit(): void{
     this.allManuals();
   }
+
+  
 
   allManuals(){
     return this.manualService.allManuals().subscribe(

@@ -33,5 +33,15 @@ steps.get('/steps/:manualId/:step',(req,res)=>{
     })
 })
 
+steps.get('/steps/:manualId',(req,res)=>{
+    Steps.count({
+        where:{
+            manualId: req.params.manualId
+        }
+    }).then((count)=>{
+        res.json(count)
+    })
+})
+
 
 module.exports = steps

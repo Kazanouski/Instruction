@@ -5,6 +5,9 @@ import { Manuals} from './manuals'
 import { Observable } from 'rxjs';
 import { Steps } from './steps'
 import { Comments } from './Comments'
+import { Likes } from './Likes';
+import { Topic } from './topic';
+import { Count } from './Count';
 
 @Injectable({
   providedIn: 'root'
@@ -52,7 +55,40 @@ export class ManualService {
     return this.http.get<Manuals>(`api/manual/${name}`)
   }
 
+  public addLike(likes: Likes, commentId:number, userId: number):Observable<Likes>{
+    return this.http.post<Likes>(`/api/addLikes/${userId}/${commentId}`, likes)
+  }
 
- 
+  public like(commentId:number):Observable<number>{
+    return this.http.get<number>(`/api/like/${commentId}`)
+  }
+
+  public countSteps(manualId:number):Observable<number>{
+    return this.http.get<number>(`/api/steps/${manualId}`)
+  }
+
+  public allTopic():Observable<Topic[]>{
+    return this.http.get<Topic[]>(`/api/topic`)
+  }
+
+  public updateManual(id:number, manual:Manuals):Observable<Manuals>{
+    return this.http.put<Manuals>(`/api/manual/${id}`,manual)
+  }
+
+  public deleteManual(id:number):Observable<Manuals>{
+    return this.http.delete<Manuals>(`/api/manual/${id}`)
+  }
+
+  public maxManual():Observable<number>{
+    return this.http.get<number>(`/api/maxManual`)
+  }
+
+  public commentsCount(manualId:number):Observable<Count[]>{
+    return this.http.get<Count[]>(`/api/commentsCount/${manualId}`)
+  }
+
+  public manualById(id: number):Observable<Manuals>{
+    return this.http.get<Manuals>(`/api/manuals/${id}`)
+  }
   
 }

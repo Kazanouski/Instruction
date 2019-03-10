@@ -1,10 +1,18 @@
-<div *ngFor="let user of users">
-  <table>
-    <tr>
-      <td>{{user?.id}}</td>
-      <td>{{user?.name}}</td>
-      <td>{{user?.email}}</td>
-      <td><a [routerLink]="['/users', user?.id]">update</a></td>
-    </tr>
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">name</th>
+        <th scope="col">email</th>
+        <th scope="col">delete</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+      <tr>
+        <th  scope="row">{{user?.id}}</th>
+        <td>{{user?.name}}</td>
+        <td>{{user?.email}}</td>
+        <td><button class="btn btn-light" (click)="deleteUsers(user?.id)">delete</button></td>
+      </tr>
+    </tbody>
   </table>
-</div>

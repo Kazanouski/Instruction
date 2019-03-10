@@ -1,15 +1,24 @@
+<div class="card text-center">
+    <div class="card-header">
+        {{manualName}}
+    </div>  
+    <div class="card-body">
+      <h5 class="card-title">Step {{counter}}</h5>
+      <p class="card-text">{{steps?.description}}</p>
+    </div>
+    <div class="card-footer text-muted">
+      <div style="float:left">
+          <Button class="btn btn-light"  (click)="decrement()"><</Button>
+      </div>
+      <div style="float:right">
+          <Button class="btn btn-light" (click)="increment()">></Button>
+      </div>
+    </div>
+  </div>
 
-  <table>
-    <tr>
-      <td>{{steps?.id}}</td>
-      <td>{{steps?.description}}</td>
-      <td>{{steps?.step}}</td>
-    </tr>
-  </table>
 <div>
-  <p>{{counter}}</p>
   <p>
-     <Button (click)="decrement()">-</Button>
-     <Button (click)="increment()">+</Button>
+     
+     
   </p>
 </div>

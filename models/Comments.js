@@ -16,6 +16,7 @@ module.exports = (sequelize) =>{
     })
     Comments.associate = model =>{
         Comments.belongsTo(model.Manuals)
+        Comments.hasMany(models.Likes,{onDelete:'cascade'})
     }
     return Comments;
 }

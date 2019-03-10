@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthenticationService } from './authentication.service'; 
@@ -28,6 +27,8 @@ import { DeleteUsersComponent } from './delete-users/delete-users.component';
 import { AddCommentsComponent } from './add-comments/add-comments.component';
 import { ViewCommentsComponent } from './view-comments/view-comments.component';
 import { ConfirmEmailComponent } from './confirm-email/confirm-email.component';
+import { UpdateManualComponent } from './update-manual/update-manual.component';
+import { AdminSevice } from './adminService';
 
 const routes: Routes =[
   {path: '', component: ManualComponent}, 
@@ -39,8 +40,9 @@ const routes: Routes =[
   {path: 'manual/:id/:step', component:StepComponent},
   {path: 'userManuals/:userId', component:UserManualsComponent},
   {path: 'addSteps/:manualId', component:AddStepComponent},
-  {path: 'users', component:UsersComponent},
-  {path: 'users/:id', component: UpdateUsersComponent},
+  {path: 'users', component:UsersComponent, canActivate:[AdminSevice]},
+  {path: 'profile/:id', component: UpdateUsersComponent},
+  {path: 'updateManual/:id', component:UpdateManualComponent}
 
 ]
 
@@ -62,7 +64,8 @@ const routes: Routes =[
     UpdateUsersComponent,
     AddCommentsComponent,
     ViewCommentsComponent,
-    ConfirmEmailComponent
+    ConfirmEmailComponent,
+    UpdateManualComponent
   ],
   imports: [
     BrowserModule,
@@ -71,7 +74,7 @@ const routes: Routes =[
     HttpClientModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthenticationService, AuthGuardService, ManualService, UsersService],
+  providers: [AuthenticationService, AuthGuardService, ManualService, UsersService, AdminSevice],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

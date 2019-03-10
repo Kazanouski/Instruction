@@ -1,11 +1,7 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded conrainer">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarexample" aria-controls="navbarexample">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <form class="form-inline md-form form-sm mt-0">
-  <input class="form-control" type="text" placeholder="Search" aria-label="Search">
-
-  </form>
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarexample">
        
       <ul class="navbar-nav">
@@ -20,7 +16,7 @@
           <a routerLink="/register" class="nav-link">Register</a>
         </li>
         <li class="nav-item" *ngIf="auth.isLoggedIn()">
-          <a routerLink="/profile" class="nav-link">{{auth.getUserDetails()?.name}}</a>
+          <a routerLink="/profile" class="nav-link">Profile</a>
         </li>
         <li class="nav-item" *ngIf="auth.isLoggedIn()">
           <a (click)="auth.logout()" routerLink="" class="nav-link">Logout</a>

@@ -1,0 +1,59 @@
+.profile{
+    float:left; 
+    width: 22.666%; 
+    padding: 10px; 
+    margin: 10px; 
+    margin-left: 4%;
+}
+
+.addManual{
+    padding: 10px ;
+    background-color: #fff;
+    margin-top: 10px; 
+    float: right; 
+    width: 33%;  
+    margin-right: 3.1%;
+    
+}
+
+.manual{
+    margin-top: 10px; 
+    float: left; 
+    width: 33.33%; 
+    margin-bottom: 10px;
+    margin-left: 1.5%;
+}
+
+.hManual{
+    margin-bottom: 5px;
+    padding: 10px;
+    
+}
+
+
+
+
+@media screen and (max-width: 960px) {
+    .hProfile{
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 580px) {
+    .profile{
+        width: 100%;
+        margin-left: 0%;
+    }
+    .addManual{
+        width: 100%;
+        margin-right: 0%;
+    }
+    .manual{
+        width: 100%;
+        margin-left: 0px;
+    }
+    .hProfile{
+        font-size: 20px;
+    }
+    
+}

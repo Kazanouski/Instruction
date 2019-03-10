@@ -1,23 +1,26 @@
 <h3>Add Customer</h3>
 <div [hidden]="submitted">
     <form (submit)="add()">
-
       <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" id="name" placeholder="name"
          [(ngModel)]="manual.name" name="name" #name="ngModel">
       </div>
-      
       <div class="form-group">
         <label for="description">description</label>
-        <input type="text" class="form-control" id="description" placeholder="description"
-        [(ngModel)]="manual.description" name="description" #description="ngModel">
-
-      </div>
-      <div class="btn-group btn-group-sm">
-      	<button *ngIf="manual" class="btn btn-dark"type="submit">Add</button>
+        <textarea type="text" class="form-control" id="description" placeholder="description"
+        [(ngModel)]="manual.description" name="description" #description="ngModel"></textarea>
+      </div>  
+      <div class="form-group">
+        <div >
+        <label for="topicName">Categoty</label>
+      <select class="form-control" id="topicName" [(ngModel)]="manual.topicName" name="topicName" #topicName="ngModel">    
+        <option *ngFor="let t of topic" [value]="t?.name">{{t?.name}}</option>
+      </select> 
+    </div>
+    </div>
+      <div class="btn-group btn-group-sm" style="float:right">
+      	<button *ngIf="manual" class="btn btn-dark" type="submit">add</button>
       </div>
     </form>
 </div>
-
-{{manuals?.id}}

@@ -18,12 +18,16 @@ module.exports = (sequelize) => {
         },
         userId:{
             type: Sequelize.INTEGER
+        },
+        topicName:{
+            type: Sequelize.STRING
         }
     })
     Manuals.associate = models => {
         Manuals.belongsTo(models.Users)
         Manuals.hasMany(models.Steps,{onDelete:'cascade'})
         Manuals.hasMany(models.Comments,{onDelete:'cascade'})
+        Manuals.belongsTo(models.Topics)
     }
     return Manuals
 }

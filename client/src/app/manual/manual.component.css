@@ -1,0 +1,15 @@
+.btn-right{
+    float: right;
+}
+
+.manual{
+    width: 50%;
+    margin-top: 10px; 
+    border:1px solid rgba(0,0,0,.125);
+}
+
+@media screen and(max-width: 580px){
+    .manual{
+        width: 100%;
+    }
+}

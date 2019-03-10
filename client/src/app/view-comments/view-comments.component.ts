@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ManualService } from '../manual.service'
 import { Comments } from '../Comments'
+import { Likes } from '../Likes'
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,7 +13,10 @@ export class ViewCommentsComponent implements OnInit {
 
  
   id: number
+  userId: number
   comments: Comments[]
+  counts: number
+  like = new Likes()
   constructor(private manualservice: ManualService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -22,8 +26,22 @@ export class ViewCommentsComponent implements OnInit {
         this.comments = comments
        })
     // },3000)
+       
     
     
+  }
+
+  addLike(commentId: number){
+    this.userId = 2
+    this.like.like = 1 
+    this.manualservice.addLike(this.like,commentId,this.userId).subscribe()
+    
+  }
+
+  viewLike(commentId:number):void{
+    this.manualservice.like(commentId).subscribe((counts)=>{
+      this.counts = counts
+    })
   }
 
 }

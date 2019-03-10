@@ -7,4 +7,5 @@ export class Manuals {
     exp: number; 
     iat: number;
     userId: number;
+    topicName: string;
 }

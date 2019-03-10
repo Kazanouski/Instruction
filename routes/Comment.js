@@ -28,4 +28,14 @@ comments.get('/comments/:manualId',(req,res)=>{
     })
 })
 
+comments.get('/commentsCount/:manualId',(req,res)=>{
+    Comments.count({
+        where:{
+            manualId: req.params.manualId
+        }
+    }).then((count)=>{
+        res.json(count)
+    })
+})
+
 module.exports = comments

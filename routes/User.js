@@ -124,5 +124,15 @@ users.delete('/users/:id',(req,res)=>{
     })
 })
 
+users.get('/users/:id',(req,res)=>{
+    User.findOne({
+        where:{
+            id: req.params.id
+        }
+    }).then((user)=>{
+        res.json(user)
+    })
+})
+
 
 module.exports = users
