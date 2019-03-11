@@ -21,11 +21,11 @@ export class ViewCommentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = +this.activatedRoute.snapshot.paramMap.get('id')
-    //setInterval(()=>{
+    setInterval(()=>{
       this.manualservice.viewComments(this.id).subscribe(comments=>{
         this.comments = comments
        })
-    // },3000)
+     },5000)
        
     
     
