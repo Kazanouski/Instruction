@@ -62,7 +62,7 @@ users.post('/login', (req,res)=>{
             res.json({token: token})
         } else{
             res.send('User does not exist')
-        }
+       }
     })
     .catch(err=>{
         res.send('error: '+ err);

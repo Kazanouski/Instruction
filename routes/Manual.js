@@ -64,10 +64,10 @@ manuals.get('/manual/:name', (req,res)=>{
     })
 })
 
-manuals.put('/manual/:id',(req,res)=>{
+manuals.put('/manualUpdate/:id',(req,res)=>{
     const manualData = {
         name: req.body.name,
-        description: req.body.name
+        description: req.body.description
     }
     Manual.update(manualData,{
         where:{

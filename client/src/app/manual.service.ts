@@ -72,7 +72,7 @@ export class ManualService {
   }
 
   public updateManual(id:number, manual:Manuals):Observable<Manuals>{
-    return this.http.put<Manuals>(`/api/manual/${id}`,manual)
+    return this.http.put<Manuals>(`/api/manualUpdate/${id}`,manual)
   }
 
   public deleteManual(id:number):Observable<Manuals>{
